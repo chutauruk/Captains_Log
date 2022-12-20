@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
+const PORT = process.env.PORT;
+const Logs = require('./models/logs');
 
 //... and then farther down the file
 mongoose.set("strictQuery", true);
@@ -20,6 +22,15 @@ app.engine("jsx", require("express-react-views").createEngine());
 
 //Body Parser
 app.use(express.urlencoded({ extended: false }));
+
+//Index Route
+app.get("/logs", (req, res) => {
+    Log.find({}, (error, allLog) => {
+      res.render("Index", {
+        logs: allLog,
+      });
+    });
+  });
 
 //Show Route
 
