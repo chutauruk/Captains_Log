@@ -19,7 +19,7 @@ export default class New extends Component {
   render() {
     return (
       <div>
-        <h1 style={myStyle}> New Pokemon</h1>
+        <h1 style={myStyle}> New Captain's Entry Log</h1>
         <body style={bodyOne}></body>
         <form action="/logs" method="post">
           Title: <input type="text" name="title" /> <br />
