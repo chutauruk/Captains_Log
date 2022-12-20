@@ -1,32 +1,32 @@
 import React from "react";
 
 const myStyle = {
-  color: "#3B7177",
-  backgroundColor: "#F1AAB7",
+  color: "#D45F10",
+  backgroundColor: "#000000",
   padding: "5px",
   fontFamily: "Helvetica",
   textAlign: "center",
 };
 
 const paraOne = {
-  color: "#3B7177",
-  backgroundColor: "#F1AAB7",
+  color: "#975878",
+  backgroundColor: "#000000",
   padding: "5px",
   fontFamily: "Helvetica",
   textAlign: "center",
 };
 
 const paraTwo = {
-  color: "#3B7177",
-  backgroundColor: "#F1AAB7",
+  color: "#975878",
+  backgroundColor: "#000000",
   padding: "5px",
   fontFamily: "Helvetica",
   textAlign: "center",
 };
 
 const bodyOne = {
-  color: "#3B7177",
-  backgroundColor: "#F1AAB7",
+  color: "#975878",
+  backgroundColor: "#000000",
   padding: "5px",
   fontFamily: "Helvetica",
   textAlign: "center",

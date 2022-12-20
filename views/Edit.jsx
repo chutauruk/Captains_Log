@@ -1,5 +1,20 @@
 import React from 'react'
 
+// const myStyle = {
+//     color: "#D45F10",
+//     backgroundColor: "#000000",
+//     padding: "5px",
+//     fontFamily: "Helvetica",
+//     textAlign: "center",
+//   };
+//   const bodyOne = {
+//     color: "#975878",
+//     backgroundColor: "#000000",
+//     padding: "5px",
+//     fontFamily: "Helvetica",
+//     textAlign: "center",
+//   };
+
 const Edit = ({log}) => {
   return (
      <>

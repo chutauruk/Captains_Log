@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
 const myStyle = {
-  color: "#3B7177",
-  backgroundColor: "#F1AAB7",
+  color: "#D45F10",
+  backgroundColor: "#000000",
   padding: "5px",
   fontFamily: "Helvetica",
   textAlign: "center",
 };
 const bodyOne = {
-  color: "#3B7177",
-  backgroundColor: "#F1AAB7",
+  color: "#975878",
+  backgroundColor: "#000000",
   padding: "5px",
   fontFamily: "Helvetica",
   textAlign: "center",
@@ -27,8 +27,8 @@ export default class New extends Component {
           Is Ship Broken?: <input type="checkbox" name="shipIsBroken" />
           <br />
           <input type="submit" name="" value="Create Ship Entry" />
-        </form>
-        <a href="/pokemon">Return without editing</a>
+        </form><br />
+        <a href="/logs">Return without editing</a>
       </div>
     );
   }
