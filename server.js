@@ -33,8 +33,6 @@ app.get("/logs", (req, res) => {
   });
 });
 
-//Show Route
-
 //New Route
 app.get("/logs/new", (req, res) => {
   res.render("New");
@@ -70,6 +68,26 @@ app.get("/pokemon/:id/edit", (req, res) => {
       .then((log) => {
         // render Edit page and send fruit data
         res.render("Edit", { log });
+      })
+      // send error as json
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
+  });
+
+//Update Route
+app.put("/logs/:id", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // check if the readyToEat property should be true or false
+    req.body.shipIsBroken = req.body.shipIsBroken === "on" ? true : false;
+    // update the entry
+    //})
+    Logs.findByIdAndUpdate(id, req.body, { new: true })
+      .then((log) => {
+        // redirect to main page after updating
+        res.redirect("/logs");
       })
       // send error as json
       .catch((error) => {
