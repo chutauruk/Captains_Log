@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //Index Route
 app.get("/logs", (req, res) => {
-    Log.find({}, (error, allLog) => {
+    Logs.find({}, (error, allLog) => {
       res.render("Index", {
         logs: allLog,
       });
@@ -47,11 +47,19 @@ app.post("/logs", (req, res) => {
     } else {
       req.body.shipIsBroken = false;
     }
-    Pokemon.create(req.body, (error, createdLog) => {
+    Logs.create(req.body, (error, createdLog) => {
       res.redirect("/logs");
     });
   });
 
+// Show Route
+app.get("/logs/:id", (req, res) => {
+    Logs.findById(req.params.id, (err, foundLog) => {
+      res.render("Show", {
+        logs: foundLog,
+      });
+    });
+  });
 
 //Edit Route
 
