@@ -1,10 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT;
-const Logs = require('./models/logs');
+const Logs = require("./models/logs");
+const methodOverride = require("method-override");
 
 //... and then farther down the file
 mongoose.set("strictQuery", true);
@@ -25,43 +26,49 @@ app.use(express.urlencoded({ extended: false }));
 
 //Index Route
 app.get("/logs", (req, res) => {
-    Logs.find({}, (error, allLog) => {
-      res.render("Index", {
-        logs: allLog,
-      });
+  Logs.find({}, (error, allLog) => {
+    res.render("Index", {
+      logs: allLog,
     });
   });
+});
 
 //Show Route
 
 //New Route
 app.get("/logs/new", (req, res) => {
-    res.render("New");
-  });
-
+  res.render("New");
+});
 
 //Create Route
 app.post("/logs", (req, res) => {
-    if (req.body.shipIsBroken === "on") {
-      req.body.shipIsBroken = true;
-    } else {
-      req.body.shipIsBroken = false;
-    }
-    Logs.create(req.body, (error, createdLog) => {
-      res.redirect("/logs");
-    });
+  if (req.body.shipIsBroken === "on") {
+    req.body.shipIsBroken = true;
+  } else {
+    req.body.shipIsBroken = false;
+  }
+  Logs.create(req.body, (error, createdLog) => {
+    res.redirect("/logs");
   });
+});
 
 // Show Route
 app.get("/logs/:id", (req, res) => {
-    Logs.findById(req.params.id, (err, foundLog) => {
-      res.render("Show", {
-        logs: foundLog,
-      });
+  Logs.findById(req.params.id, (err, foundLog) => {
+    res.render("Show", {
+      logs: foundLog,
     });
   });
+});
 
 //Edit Route
+
+//Delete Route
+app.delete("/logs/:id", (req, res) => {
+  Logs.findByIdAndRemove(req.params.id, (log) => {
+    res.redirect("/logs"); //redirect to the index
+  });
+});
 
 // Server Listener
 //////////////////////////////////////////////
