@@ -2,17 +2,17 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 //... and then farther down the file
-// mongoose.set("strictQuery", true);
-// mongoose.connect(process.env.MONGO_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-// mongoose.connection.once("open", () => {
-//   console.log("connected to mongo");
-// });
+mongoose.set("strictQuery", true);
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+mongoose.connection.once("open", () => {
+  console.log("connected to mongo");
+});
 
 //Middleware
 app.set("view engine", "jsx");
