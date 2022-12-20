@@ -38,9 +38,13 @@ const Index = ({ logs }) => {
                   : "The ship is in good condition"}
               </p>
               <br />
-              <a href={`/logs/${log._id}/edit`}>Edit</a>
+              <form
+                  action={`/logs/${log._id}/edit`}
+                  method="POST"
+                ><input type="submit" value="EDIT" />
+                </form>
               <form action={`/logs/${log._id}?_method=DELETE`} method="POST">
-                <input type="submit" defaultValue="delete" />
+                <input type="submit" defaultValue="DELETE" />
               </form>
               <br />
             </li>

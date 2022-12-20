@@ -62,6 +62,21 @@ app.get("/logs/:id", (req, res) => {
 });
 
 //Edit Route
+app.get("/pokemon/:id/edit", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // get the fruit from the database
+    Logs.findById(id)
+      .then((log) => {
+        // render Edit page and send fruit data
+        res.render("Edit", { log });
+      })
+      // send error as json
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
+  });
 
 //Delete Route
 app.delete("/logs/:id", (req, res) => {
